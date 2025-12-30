@@ -1,7 +1,9 @@
-" Hello，我是PowerVim的作者，程序员Carl，欢迎关注我的微信公众号：代码随想录 
-"
 " 定义快捷键的前缀，即<Leader>
 let mapleader=";"
+
+nnoremap <F3> :TlistOpen<CR>
+nnoremap <F2> :tabnew<CR>
+
 set tags +=~/.vim/tags/systags " C lib tags
 set tags +=~/.vim/tags/cpptags " Cpp lib tags
 set tags +=~/.vim/tags/kerneltags " Cpp lib tags
@@ -42,10 +44,10 @@ set nocp
 
 "set encoding=utf-8
 ""set encoding=gb2312
-set langmenu=zh_CN.gb2312
-language message zh_CN.gb2312
+set langmenu=en_US
+" language message en_US
 
-set fileencoding=gbk2312
+set fileencoding=utf-8
 set ts=4
 set sw=4
 set smartindent
@@ -253,7 +255,7 @@ func SetTitle()
         call setline(1,"\#########################################################################")
         call append(line("."),   "\# File Name:    ".expand("%"))
         call append(line(".")+1, "\# Author:       ferdi")
-        call append(line(".")+2, "\# mail:         2748839305@qq.com or 22s121106@stu.hit.edu.cn")
+        call append(line(".")+2, "\# mail:         wenbo1.ma@intel.com")
         call append(line(".")+3, "\# Created Time: ".strftime("%c"))
         call append(line(".")+4, "\#########################################################################")
         call append(line(".")+5, "\#!/bin/bash")
@@ -262,7 +264,7 @@ func SetTitle()
         call setline(1, "/* ************************************************************************")
         call append(line("."),   "> File Name:     ".expand("%"))
         call append(line(".")+1, "\# Author:       ferdi")
-        call append(line(".")+2, "\# mail:         2748839305@qq.com or 22s121106@stu.hit.edu.cn")
+        call append(line(".")+2, "\# mail:         wenbo1.ma@intel.com")
         call append(line(".")+3, "> Created Time:  ".strftime("%c"))
         call append(line(".")+4, "> Description:   ")
         call append(line(".")+5, " ************************************************************************/")
@@ -439,3 +441,7 @@ function! GenMarkdownSectionNum()
   " echo lvl sect out
   echo out
 endfunc
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd="/usr/bin/ctags"
